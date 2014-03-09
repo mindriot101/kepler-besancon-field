@@ -1,0 +1,46 @@
+\connect besancon;
+-- drop table if exists kepler_field;
+-- create table kepler_field (
+--     id serial primary key,
+--     dist float,
+--     mv float,
+--     cl integer,
+--     typ float,
+--     ltef float,
+--     logg float,
+--     age float,
+--     mass float,
+--     jmh float,
+--     umb float,
+--     vmi float,
+--     vmk float,
+--     v float,
+--     metal float,
+--     l float,
+--     b float,
+--     av float,
+--     mbol float
+-- );
+-- copy kepler_field (
+--     dist, mv, cl, typ, ltef, logg, age, mass, jmh, 
+--     umb, vmi, vmk, v, metal, l, b, av, mbol) 
+-- from '/Users/simon/work/Warwick/PostDoc/Other/kepler-besancon-field/data.dat' delimiter ',' csv;
+-- create index on kepler_field (vmag);
+-- create index on kepler_field (cl);
+-- create index on kepler_field (ltef);
+-- create index on kepler_field (logg);
+-- create index on kepler_field (jmh);
+-- create index on kepler_field (v);
+-- create index on kepler_field (metal);
+
+-- create view kepler_sample as
+-- select * from kepler_field
+-- where power(10, ltef) between 4100 and 6100
+-- and logg between 4.0 and 4.9
+-- and v <= 15.1;
+
+-- create view wasp_sample as
+-- select * from kepler_field
+-- where v between 9.3 and 12.8
+-- and jmh between 0.16 and 0.49
+-- and cl = 5
